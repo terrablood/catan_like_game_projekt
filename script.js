@@ -1,13 +1,13 @@
 // ez dönti el hogy melyik biomból menyi van és hol
-let biomok = csupanullalista();
+let biomok = biomok();
 // ez mutatja, hogy lelőhely-e
-let lelohelye = csupanullalista();
+let lelohelye = lelohelyek();
 // ez tárolja,, hogy melyik koordinátának mi a száma
-let kockaszam = csupanullalista();
+let kockaszam = kockaszam();
 // megmutatja, hogy claimelve vvan e és ki által
-let claim = csupanullalista();
+let claim = claim();
 // megmutatja hogy foglalt-e a terület
-let foglalt = csupanullalista();
+let foglalt = foglalt();
 
 
 
