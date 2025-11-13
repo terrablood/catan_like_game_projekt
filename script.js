@@ -10,19 +10,37 @@ let claim = claim();
 let foglalt = foglalt();
 
 
-
-function biomok(){
+// 24*24 = 576
+function biomok(){ 
     let a = [];
-    for (let i = 0; i < (24*24); i++) {
-        a[i] = 0;
+    // mező 192 -> 1
+    // erdő 192 -> 2
+    // hegység 128 -> 3
+    // mocsár 64 -> 4
+    
+    for (let i = 0; i < 192; i++) {
+        a.push(1);
+    }
+    for (let i = 0; i < 192; i++) {
+        a.push(2);
+    }
+    for (let i = 0; i < 128; i++) {
+        a.push(3);
+    }
+    for (let i = 0; i < 64; i++) {
+        a.push(4);
     }
     return a;
 }
 function lelohelyek(){
     let a = [];
-    for (let i = 0; i < (24*24); i++) {
-        a[i] = 0;
+    for (let i = 0; i < 18; i++) {
+        a.push(1);
     }
+    for (let i = 0; i < 558; i++) {
+        a.push(0);
+    }
+
     return a;
 }
 function kockaszam(){
