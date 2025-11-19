@@ -1,14 +1,13 @@
-// ez dönti el hogy melyik biomból menyi van és hol
-let biomok = biomok();
-// ez mutatja, hogy lelőhely-e
-let lelohelye = lelohelyek();
-// ez tárolja,, hogy melyik koordinátának mi a száma
-let kockaszam = kockaszam();
-// megmutatja, hogy claimelve vvan e és ki által
-let claim = claim();
-// megmutatja hogy foglalt-e a terület
-let foglalt = foglalt();
 
+
+function keveres(l){ // Fisher-Yates-Knuth shuffle
+    let i=l.length;
+    while(i!=0){
+        let j=Math.floor(Math.random()*i);
+        i--;
+        [l[i], l[j]] = [l[j], l[i]];
+    }
+}
 
 // 24*24 = 576
 function biomok(){ 
@@ -45,22 +44,67 @@ function lelohelyek(){
 }
 function kockaszam(){
     let a = [];
-    for (let i = 0; i < (24*24); i++) {
-        a[i] = 0;
+    for (let i = 0; i < 6; i++) {
+        for (let j = 0; j < 96; j++) {
+        a.push(i);
+        }
     }
     return a;
 }
 function claim(){
     let a = [];
     for (let i = 0; i < (24*24); i++) {
-        a[i] = 0;
+        a.push(0);
     }
     return a;
 }
 function foglalt(){
     let a = [];
     for (let i = 0; i < (24*24); i++) {
-        a[i] = 0;
+        a.push(0);
     }
     return a;
 }
+function matrixhajtogatas(biom, lelohely, kockaszam, claim, foglalt)
+{
+    let index = 0;
+    let map = [];
+    for (let i = 0; i < 24; i++) {
+        let line = [];
+        for (let j = 0; j < 24; j++) {
+            let depht = []
+            depht.push(biom[index]);
+            depht.push(biom[lelohely]);
+            depht.push(biom[kockaszam]);
+            depht.push(biom[claim]);
+            depht.push(biom[foglalt]);
+            index++;
+            line.push(depht);
+        }
+        map.push(line);
+    }
+    return map;
+}
+function divek_letrehozasa(x,y){
+    for (let i = 0; i < x; i++) {
+        for (let j = 0; j < y; j++) {
+            let div = document.createElement("div");
+            div.id = `${i} ${j}`;
+            div.onclick = balkatt;
+            div.onclick = jobbkatt;
+            div.classList.add('nemkattintott');
+            document.querySelector(".container").appendChild(div);
+        }
+    }
+}
+function randommapgen(){
+    let biomok = keveres(biomok());// ez dönti el hogy melyik biomból menyi van és hol
+    let lelohelye = keveres(lelohelyek());// ez mutatja, hogy lelőhely-e
+    let kockaszam = keveres(kockaszam());// ez tárolja,, hogy melyik koordinátának mi a száma
+    let claim = keveres(claim());// megmutatja, hogy claimelve vvan e és ki által
+    let foglalt = keveres(foglalt());// megmutatja hogy foglalt-e a terület
+    matrixhajtogatas(biomok,lelohelye,kockaszam,claim,foglalt)
+}
+
+divek_letrehozasa(24,24);
+let map = randommapgen();
