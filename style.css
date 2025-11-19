@@ -1,7 +1,7 @@
 .container{
     display: grid;
-    grid-template-columns: repeat(15,20px);
-    grid-template-rows: repeat(15,20px);
+    grid-template-columns: repeat(24,20px);
+    grid-template-rows: repeat(24,20px);
     justify-content: center;
 }
 
@@ -15,11 +15,11 @@
 }
 
 .nemkattintott{
-    background-color: #A0A0A0;
-    border-top-color: #C0C0C0;
-    border-left-color: #C0C0C0;
-    border-bottom-color: #404040;
-    border-right-color: #404040;
+    background-color: #11df56;
+    border-top-color:#25f76b;
+    border-left-color:#25f76b;
+    border-bottom-color:#049635;
+    border-right-color:#049635;
     border-width: 3px;
     border-style: solid;
 }
