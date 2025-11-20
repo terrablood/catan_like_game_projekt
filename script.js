@@ -72,14 +72,14 @@ function matrixhajtogatas(biom, lelohely, kockaszam, claim, foglalt)
     for (let i = 0; i < 24; i++) {
         let line = [];
         for (let j = 0; j < 24; j++) {
-            let depht = []
-            depht.push(biom[index]);
-            depht.push(biom[lelohely]);
-            depht.push(biom[kockaszam]);
-            depht.push(biom[claim]);
-            depht.push(biom[foglalt]);
+            let cell = []
+            cell.push(biom[index]);
+            cell.push(lelohely[index]);
+            cell.push(kockaszam[index]);
+            cell.push(claim[index]);
+            cell.push(foglalt[index]);
             index++;
-            line.push(depht);
+            line.push(cell);
         }
         map.push(line);
     }
@@ -103,8 +103,9 @@ function randommapgen(){
     let kockaszam = keveres(kockaszam());// ez tárolja,, hogy melyik koordinátának mi a száma
     let claim = keveres(claim());// megmutatja, hogy claimelve vvan e és ki által
     let foglalt = keveres(foglalt());// megmutatja hogy foglalt-e a terület
-    matrixhajtogatas(biomok,lelohelye,kockaszam,claim,foglalt)
+    return matrixhajtogatas(biomok,lelohelye,kockaszam,claim,foglalt)
 }
 
+alert("huhu");
 divek_letrehozasa(24,24);
 let map = randommapgen();
