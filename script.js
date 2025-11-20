@@ -19,17 +19,25 @@ function biomok(){
     
     for (let i = 0; i < 192; i++) {
         a.push(1);
+        // a[i].classList.add('mező');
     }
     for (let i = 0; i < 192; i++) {
         a.push(2);
+        // a[i].classList.add('erdő');
+
     }
     for (let i = 0; i < 128; i++) {
         a.push(3);
+        // a[i].classList.add('hegység');
+
     }
     for (let i = 0; i < 64; i++) {
         a.push(4);
+        // a[i].classList.add('mocsár');
+
     }
     return a;
+    
 }
 function lelohelyek(){
     let a = [];
@@ -86,14 +94,14 @@ function matrixhajtogatas(biom, lelohely, kockaszam, claim, foglalt)
     return map;
 }
 function divek_letrehozasa(x,y){
+    let container = document.querySelector(".container");
     for (let i = 0; i < x; i++) {
         for (let j = 0; j < y; j++) {
             let div = document.createElement("div");
             div.id = `${i} ${j}`;
             div.onclick = balkatt;
             div.onclick = jobbkatt;
-            div.classList.add('nemkattintott');
-            document.querySelector(".container").appendChild(div);
+            container.appendChild(div);
         }
     }
 }
@@ -105,7 +113,28 @@ function randommapgen(){
     let foglalt = keveres(foglalt());// megmutatja hogy foglalt-e a terület
     return matrixhajtogatas(biomok,lelohelye,kockaszam,claim,foglalt)
 }
+function balkatt(){
+    alert("balkatt!")
+}
+function jobbkatt(){
+    alert("jobbkatt!")
+}
 
-alert("huhu");
+function divek_szinezese(map){
+    let container = document.querySelector(".container");
+        for (const div of container) {
+                // div.id    "14 17"
+                 // split?   ["14", "17"]
+                 // x = 14
+                 // y = 17
+                 map[x][y][0] // ez lesz a biom számkódja.
+                 // ha azt látod, hogy nulla, akkor legyen "mező a class"
+                 // a[i].classList.add('mező');
+
+        }
+}
+
+// alert("huhu");
 divek_letrehozasa(24,24);
 let map = randommapgen();
+divek_szinezese(map);

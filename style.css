@@ -15,7 +15,15 @@
 
 }
 
-.nemkattintott{
+
+.container div:hover{
+    background-color: #F0A0A0;
+    border-top-color: #F0C0C0;
+    border-left-color: #F0C0C0;
+    border-bottom-color: #F04040;
+    border-right-color: #F04040;
+}
+.mező{
     background-color: #11df56;
     border-top-color:#25f76b;
     border-left-color:#25f76b;
@@ -24,11 +32,30 @@
     border-width: 3px;
     border-style: solid;
 }
-
-.container div:hover{
-    background-color: #F0A0A0;
-    border-top-color: #F0C0C0;
-    border-left-color: #F0C0C0;
-    border-bottom-color: #F04040;
-    border-right-color: #F04040;
+.erdő{
+    background-color: #04471a;
+    border-top-color:#058630;
+    border-left-color:#049635;
+    border-bottom-color:#023011;
+    border-right-color:#023011;
+    border-width: 3px;
+    border-style: solid;
+}
+.hegység{
+    background-color: #ffffff;
+    border-top-color:#B0B0B0;
+    border-left-color:#B0B0B0;
+    border-bottom-color:#949494;
+    border-right-color:#949494;
+    border-width: 3px;
+    border-style: solid;
+}
+.mocsár{
+    background-color: #23613f;
+    border-top-color:#439769;
+    border-left-color:#439769;
+    border-bottom-color:#19412b;
+    border-right-color:#19412b;
+    border-width: 3px;
+    border-style: solid;
 }
