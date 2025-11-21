@@ -127,7 +127,9 @@ function divek_szinezese(map){
                  // split?   ["14", "17"]
                  // x = 14
                  // y = 17
-                 map[x][y][0] // ez lesz a biom számkódja.
+                 if(map[x][y][0] == 0)
+                    container.classList.add('mező')
+                  // ez lesz a biom számkódja.
                  // ha azt látod, hogy nulla, akkor legyen "mező a class"
                  // a[i].classList.add('mező');
 
