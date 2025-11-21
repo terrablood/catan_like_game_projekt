@@ -18,21 +18,21 @@ function biomok(){
     // mocsár 64 -> 4
     
     for (let i = 0; i < 192; i++) {
-        a.push(1);
+        a.push(0);
         // a[i].classList.add('mező');
     }
     for (let i = 0; i < 192; i++) {
-        a.push(2);
+        a.push(1);
         // a[i].classList.add('erdő');
 
     }
     for (let i = 0; i < 128; i++) {
-        a.push(3);
+        a.push(2);
         // a[i].classList.add('hegység');
 
     }
     for (let i = 0; i < 64; i++) {
-        a.push(4);
+        a.push(3);
         // a[i].classList.add('mocsár');
 
     }
@@ -127,11 +127,17 @@ function divek_szinezese(map){
                  // split?   ["14", "17"]
                  // x = 14
                  // y = 17
-                 if(map[x][y][0] == 0)
-                    container.classList.add('mező')
-                  // ez lesz a biom számkódja.
-                 // ha azt látod, hogy nulla, akkor legyen "mező a class"
-                 // a[i].classList.add('mező');
+
+                 // ez lesz a biom számkódja.
+                if(map[x][y][0] == 0) // ha azt látod, hogy nulla, akkor legyen "mező a class"
+                    container.classList.add('mező') // a[i].classList.add('mező');
+                if(map[x][y][0] == 1)
+                    container.classList.add('erdő')
+                if(map[x][y][0] == 2)
+                    container.classList.add('hegység')
+                if(map[x][y][0] == 3)
+                    container.classList.add('mocsár')
+                 
 
         }
 }
