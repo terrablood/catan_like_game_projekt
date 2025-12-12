@@ -106,12 +106,12 @@ function divek_letrehozasa(x,y){
     }
 }
 function randommapgen(){
-    let biomok = keveres(biomok());// ez dönti el hogy melyik biomból menyi van és hol
-    let lelohelye = keveres(lelohelyek());// ez mutatja, hogy lelőhely-e
-    let kockaszam = keveres(kockaszam());// ez tárolja,, hogy melyik koordinátának mi a száma
-    let claim = keveres(claim());// megmutatja, hogy claimelve vvan e és ki által
-    let foglalt = keveres(foglalt());// megmutatja hogy foglalt-e a terület
-    return matrixhajtogatas(biomok,lelohelye,kockaszam,claim,foglalt)
+    let biomokk = keveres(biomok());// ez dönti el hogy melyik biomból menyi van és hol
+    let lelohelyee = keveres(lelohelyek());// ez mutatja, hogy lelőhely-e
+    let kockaszamm = keveres(kockaszam());// ez tárolja,, hogy melyik koordinátának mi a száma
+    let claimm = keveres(claim());// megmutatja, hogy claimelve vvan e és ki által
+    let foglaltt = keveres(foglalt());// megmutatja hogy foglalt-e a terület
+    return matrixhajtogatas(biomokk,lelohelyee,kockaszamm,claimm,foglaltt)
 }
 function balkatt(){
     alert("balkatt!")
@@ -122,24 +122,25 @@ function jobbkatt(){
 
 function divek_szinezese(map){
     let container = document.querySelector(".container");
-        for (const div of container) {
+
+        for (let y = 0; y < 24; y++) {
+            for (let x = 0; x < 24; x++) {
+                if(map[x][y][0] == 0) // ha azt látod, hogy nulla, akkor legyen "mező a class"
+                    container[x,y].classList.add('mező') // a[i].classList.add('mező');
+                if(map[x][y][0] == 1)
+                    container[x,y].classList.add('erdő')
+                if(map[x][y][0] == 2)
+                    container[x,y].classList.add('hegység')
+                if(map[x][y][0] == 3)
+                    container[x,y].classList.add('mocsár')
+            }
+        }
                 // div.id    "14 17"
                  // split?   ["14", "17"]
                  // x = 14
                  // y = 17
 
                  // ez lesz a biom számkódja.
-                if(map[x][y][0] == 0) // ha azt látod, hogy nulla, akkor legyen "mező a class"
-                    container.classList.add('mező') // a[i].classList.add('mező');
-                if(map[x][y][0] == 1)
-                    container.classList.add('erdő')
-                if(map[x][y][0] == 2)
-                    container.classList.add('hegység')
-                if(map[x][y][0] == 3)
-                    container.classList.add('mocsár')
-                 
-
-        }
 }
 
 // alert("huhu");
