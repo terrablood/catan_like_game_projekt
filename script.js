@@ -80,7 +80,8 @@ function matrixhajtogatas(biom, lelohely, kockaszam, claim, foglalt)
     for (let i = 0; i < 24; i++) {
         let line = [];
         for (let j = 0; j < 24; j++) {
-            let cell = []
+            let cell = [];
+            console.log(biom);
             cell.push(biom[index]);
             cell.push(lelohely[index]);
             cell.push(kockaszam[index]);
