@@ -23,7 +23,7 @@
     border-bottom-color: #F04040;
     border-right-color: #F04040;
 }
-.mező{
+.mezo{
     background-color: #11df56;
     border-top-color:#25f76b;
     border-left-color:#25f76b;
@@ -32,7 +32,7 @@
     border-width: 3px;
     border-style: solid;
 }
-.erdő{
+.erdo{
     background-color: #04471a;
     border-top-color:#058630;
     border-left-color:#049635;
@@ -41,7 +41,7 @@
     border-width: 3px;
     border-style: solid;
 }
-.hegység{
+.hegyseg{
     background-color: #ffffff;
     border-top-color:#B0B0B0;
     border-left-color:#B0B0B0;
@@ -50,7 +50,7 @@
     border-width: 3px;
     border-style: solid;
 }
-.mocsár{
+.mocsar{
     background-color: #23613f;
     border-top-color:#439769;
     border-left-color:#439769;

@@ -7,6 +7,7 @@ function keveres(l){ // Fisher-Yates-Knuth shuffle
         i--;
         [l[i], l[j]] = [l[j], l[i]];
     }
+    return l;
 }
 
 // 24*24 = 576
@@ -52,7 +53,7 @@ function lelohelyek(){
 }
 function kockaszam(){
     let a = [];
-    for (let i = 0; i < 6; i++) {
+    for (let i = 1; i < 7; i++) {
         for (let j = 0; j < 96; j++) {
         a.push(i);
         }
@@ -99,20 +100,25 @@ function divek_letrehozasa(x,y){
     for (let i = 0; i < x; i++) {
         for (let j = 0; j < y; j++) {
             let div = document.createElement("div");
-            div.id = `${i} ${j}`;
+            div.id = `${i}_${j}`;
             div.onclick = balkatt;
-            div.onclick = jobbkatt;
             container.appendChild(div);
         }
     }
-}
+}// id meg kell próbálnom beilleszteni a szinezést a generáláson bélűlre!
 function randommapgen(){
-    let biomokk = keveres(biomok());// ez dönti el hogy melyik biomból menyi van és hol
-    let lelohelyee = keveres(lelohelyek());// ez mutatja, hogy lelőhely-e
-    let kockaszamm = keveres(kockaszam());// ez tárolja,, hogy melyik koordinátának mi a száma
-    let claimm = keveres(claim());// megmutatja, hogy claimelve vvan e és ki által
-    let foglaltt = keveres(foglalt());// megmutatja hogy foglalt-e a terület
-    return matrixhajtogatas(biomokk,lelohelyee,kockaszamm,claimm,foglaltt)
+    let a = biomok();
+    let biomokk = keveres(a);// ez dönti el hogy melyik biomból menyi van és hol
+    let b = lelohelyek();
+    let lelohelyee = keveres(b);// ez mutatja, hogy lelőhely-e
+    let c = kockaszam();
+    let kockaszamm = keveres(c);// ez tárolja,, hogy melyik koordinátának mi a száma
+    let d = claim();
+    let claimm = keveres(d);// megmutatja, hogy claimelve vvan e és ki által
+    let e = foglalt();
+    let foglaltt = keveres(e);// megmutatja hogy foglalt-e a terület
+    let f = matrixhajtogatas(biomokk,lelohelyee,kockaszamm,claimm,foglaltt)
+    return f;
 }
 function balkatt(){
     alert("balkatt!")
@@ -120,31 +126,42 @@ function balkatt(){
 function jobbkatt(){
     alert("jobbkatt!")
 }
-
+/*
 function divek_szinezese(map){
     let container = document.querySelector(".container");
 
         for (let y = 0; y < 24; y++) {
             for (let x = 0; x < 24; x++) {
                 if(map[x][y][0] == 0) // ha azt látod, hogy nulla, akkor legyen "mező a class"
-                    container[x,y].classList.add('mező') // a[i].classList.add('mező');
+                    container[x][y].classList.add('mező') // a[i].classList.add('mező');
                 if(map[x][y][0] == 1)
-                    container[x,y].classList.add('erdő')
+                    container[x][y].classList.add('erdő')
                 if(map[x][y][0] == 2)
-                    container[x,y].classList.add('hegység')
+                    container[x][y].classList.add('hegység')
                 if(map[x][y][0] == 3)
-                    container[x,y].classList.add('mocsár')
+                    container[x][y].classList.add('mocsár')
             }
         }
-                // div.id    "14 17"
-                 // split?   ["14", "17"]
-                 // x = 14
-                 // y = 17
+}
+*/
+function divek_szinezese(map){
 
-                 // ez lesz a biom számkódja.
+    for (let y = 0; y < 24; y++) {
+        for (let x = 0; x < 24; x++) {
+
+            let div = document.getElementById(`${x}_${y}`);
+            let biom = map[y][x][0];
+
+            if (biom === 0) div.classList.add('mezo');
+            if (biom === 1) div.classList.add('erdo');
+            if (biom === 2) div.classList.add('hegyseg');
+            if (biom === 3) div.classList.add('mocsar');
+        }
+    }
 }
 
-// alert("huhu");
-divek_letrehozasa(24,24);
-let map = randommapgen();
-divek_szinezese(map);
+document.addEventListener("DOMContentLoaded", () => {
+    divek_letrehozasa(24,24);
+    let map = randommapgen();
+    divek_szinezese(map);
+});
