@@ -102,6 +102,7 @@ function divek_letrehozasa(x,y){
             let div = document.createElement("div");
             div.id = `${i}_${j}`;
             div.onclick = balkatt;
+            div.classList.add("mezo")
             container.appendChild(div);
         }
     }
@@ -143,7 +144,6 @@ function divek_szinezese(map){
             }
         }
 }
-*/
 function divek_szinezese(map){
 
     for (let y = 0; y < 24; y++) {
@@ -159,9 +159,80 @@ function divek_szinezese(map){
         }
     }
 }
-
+*/
+function resources() //kreál egy üres resources listát
+{
+    let resources = [];
+    resources.add(0)// barany
+    resources.add(0)// fa
+    resources.add(0)// szovet
+    resources.add(0)// ko
+    resources.add(0)// erc
+    return resources;
+}
+function addon(mit, mennyit, hova) // a resource listát írja át
+{
+    if(mit == "barany")
+    {
+        hova[0] += mennyit;
+    }
+    if(mit == "fa")
+    {
+        hova[1] += mennyit;
+    }
+    if(mit == "szovet")
+    {
+        hova[2] += mennyit;
+    }
+    if(mit == "ko")
+    {
+        hova[3] += mennyit;
+    }
+    if(mit == "erc")
+    {
+        hova[4] += mennyit;
+    }
+}
+function elvesz(mit, mennyit, hova) // a resource listát írja át
+{
+    if(mit == "barany")
+    {
+        hova[0] -= mennyit;
+    }
+    if(mit == "fa")
+    {
+        hova[1] -= mennyit;
+    }
+    if(mit == "szovet")
+    {
+        hova[2] -= mennyit;
+    }
+    if(mit == "ko")
+    {
+        hova[3] -= mennyit;
+    }
+    if(mit == "erc")
+    {
+        hova[4] -= mennyit;
+    }
+}
+function claiming(x,y,claimlist)
+{
+    claimlist.add[x][y];
+}
+function kockadobas(){
+    let a = random(1,6);
+    return a;
+}
+function csekkol(map, szam){
+    let l = []
+    if(map[x][y][3] == szam)
+    {
+        l.add(map[x][y][1])
+    }
+}
 document.addEventListener("DOMContentLoaded", () => {
     divek_letrehozasa(24,24);
     let map = randommapgen();
-    divek_szinezese(map);
+    
 });
